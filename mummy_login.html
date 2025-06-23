@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mummy Dashboard - Mummy Meals</title>
+    <link rel="stylesheet" href="csss/mummy_login.css">
+</head>
+<body>
+    <!-- Header -->
+    <div class="header-bar">
+        <div class="brand-container">
+            <img src="resources/images1/logo.png" alt="Logo" class="brand-logo">
+        </div>
+        <div class="header-actions">
+            <button id="orders-tab" class="orders-tab">Today's Orders</button>
+            <div class="user-profile">
+                <img id="profile-pic" class="user-avatar" src="" alt="Profile">
+                <span id="profile-name"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Slider -->
+    <div class="slider-container">
+        <div class="slider-track">
+            <img src="resources/images1/delhi6.png" alt="Special Dish 1">
+            <img src="resources/images1/redirect1.png" alt="Special Dish 2">
+            <img src="resources/images1/merabg.png" alt="Special Dish 3">
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="menu-section">
+            <h2>What are you cooking tomorrow?</h2>
+            <form id="menu-form">
+                <textarea id="tomorrow-menu" rows="4" placeholder="Enter your menu..."></textarea>
+                <button type="submit" class="save-menu-btn">Save Menu</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Orders Modal -->
+    <div id="orders-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Today's Orders</h2>
+            <div id="orders-list"></div>
+        </div>
+    </div>
+
+    <script src="jss/mummy_login.js"></script>
+</body>
+</html>

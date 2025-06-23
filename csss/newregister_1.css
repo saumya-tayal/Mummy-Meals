@@ -1,0 +1,320 @@
+/* style.css - Relevant rules for register_options.html */
+
+/* === CSS Reset === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* === Basic Body Styles (Dependencies) === */
+html {
+    font-size: 16px;
+}
+
+body { /* Base font-family and line-height are inherited */
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    /* Other properties like default background/color are overridden by body.register-page */
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Default heading margins (likely used) */
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0.8em;
+}
+
+/* Base Link Styles (overridden, but included for safety) */
+a { text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* === Buttons (Dependencies) === */
+/* Base styles for all elements with the .btn class */
+.btn {
+    display: inline-block;
+    padding: 8px 18px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, opacity 0.3s ease;
+    margin: 5px;
+}
+/* Primary button style variation (Not directly used by name, but .btn-signin is similar) */
+/* .btn-primary { background-color: #ff6f61; color: #fff; font-size: 1.1rem; font-weight: 600; padding: 14px 20px; } */
+/* .btn-primary:hover { background-color: #e65a50; text-decoration: none; } */
+
+
+/* ===================================================== */
+/* === START: Register Options Page Styles (register_options.html) === */
+/* ===================================================== */
+
+/* Styles specifically applied when the body has the class 'register-page' */
+body.register-page {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../resources/images1/delhi6.png'); /* Specific background */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Keeps background fixed during scroll */
+    color: #fff; /* Default text color for this page */
+    display: flex; /* Enables flexbox layout for children */
+    flex-direction: column; /* Stacks children vertically */
+    min-height: 100vh; /* Ensures body takes full viewport height */
+}
+
+/* Link styling specific to the register page */
+body.register-page a {
+    color: #fff; /* White links */
+}
+body.register-page a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Container potentially used for overlay effect or main content area */
+.register-hero-overlay {
+    position: relative; /* Positioning context */
+    flex-grow: 1; /* Allows this element to grow and fill available space */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header section styling for the register page */
+.page-header {
+    padding: 20px 4%; /* Padding around the header content */
+    position: absolute; /* Positioned relative to the nearest positioned ancestor (or body) */
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width */
+    z-index: 10; /* Ensures header stays above other content */
+}
+
+/* Container within the header for layout control */
+.header-container {
+    max-width: 1920px; /* Maximum width of the header content */
+    margin: 0 auto; /* Centers the container horizontally */
+    display: flex;
+    justify-content: space-between; /* Pushes logo and button to opposite ends */
+    align-items: center; /* Vertically aligns items in the center */
+}
+
+/* Logo link and image styles */
+.logo-link .logo {
+    height: 100px; /* Logo height */
+    width: auto; /* Maintain aspect ratio */
+    vertical-align: middle; /* Aligns the logo nicely if next to text (though not here) */
+}
+
+/* Specific style for the Sign In button on this page */
+.btn-signin {
+    background-color: #ff6f61; /* Button background color */
+    color: #fff; /* Button text color */
+    font-size: 0.9rem; /* Button font size */
+    padding: 7px 17px; /* Button padding */
+    border-radius: 4px; /* Rounded corners */
+    font-weight: 500; /* Button font weight */
+    /* Inherits base .btn styles like display, cursor, transition */
+}
+.btn-signin:hover {
+    background-color: #e65a50; /* Darker background on hover */
+    text-decoration: none; /* Remove underline on hover */
+}
+
+/* --- Infinite Image Slider Styles (register_options.html) --- */
+.image-slider-container {
+    width: 100%; /* Takes full width of its parent */
+    max-width: 800px; /* Maximum width of the slider */
+    aspect-ratio: 16 / 9; /* Defines the height relative to the width */
+    margin: 120px auto 40px auto; /* Top, horizontal auto (center), bottom */
+    overflow: hidden; /* Hides parts of slides outside the container */
+    position: relative; /* Positioning context for buttons */
+    border-radius: 8px; /* Rounded corners for the slider */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Drop shadow */
+    z-index: 1; /* Ensure it's above default background but below header if needed */
+}
+
+.slider-track {
+    display: flex; /* Aligns slides horizontally */
+    height: 100%; /* Track takes full height of container */
+    /* Width and transform are set by JavaScript */
+}
+
+.slide {
+    flex-shrink: 0; /* Prevents slides from shrinking */
+    height: 100%; /* Slide takes full height of track */
+    /* Width is set by JavaScript */
+}
+
+/* Ensure links within slides behave correctly */
+.slide a {
+    display: block; /* Makes the link fill the slide area */
+    height: 100%;
+    text-decoration: none;
+    color: inherit; /* Inherits text color (though unlikely needed for images) */
+    cursor: pointer;
+}
+
+/* Image styling within slides */
+.slide img {
+    display: block; /* Removes extra space below image */
+    width: 100%; /* Image fills slide width */
+    height: 100%; /* Image fills slide height */
+    object-fit: cover; /* Covers the area, cropping if necessary */
+    vertical-align: top; /* Aligns image to the top */
+}
+
+/* Previous/Next button styling */
+.slider-button {
+    position: absolute; /* Positioned relative to slider-container */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Adjust vertical centering */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    color: white; /* White arrow color */
+    border: none; /* No border */
+    padding: 10px 15px; /* Padding inside button */
+    font-size: 1.5rem; /* Arrow size */
+    font-weight: bold; /* Bold arrow */
+    cursor: pointer; /* Pointer cursor */
+    border-radius: 50%; /* Circular buttons */
+    width: 50px; /* Button width */
+    height: 50px; /* Button height */
+    line-height: 28px; /* Helps center the arrow character vertically */
+    text-align: center; /* Centers the arrow character horizontally */
+    z-index: 5; /* Ensure buttons are above slides */
+    transition: background-color 0.3s ease, opacity 0.3s ease; /* Smooth transition on hover */
+    opacity: 0.7; /* Slightly transparent by default */
+}
+.slider-button:hover {
+    background-color: rgba(0, 0, 0, 0.8); /* Darker background on hover */
+    opacity: 1; /* Fully opaque on hover */
+}
+.slider-button.slider-prev { left: 15px; } /* Position previous button on the left */
+.slider-button.slider-next { right: 15px; } /* Position next button on the right */
+
+/* Simple Footer for Register Page */
+.page-footer-simple {
+    background-color: rgba(0, 0, 0, 0.75); /* Dark semi-transparent background */
+    color: #737373; /* Default text color in footer */
+    padding: 30px 0; /* Vertical padding */
+    margin-top: auto; /* Pushes footer to the bottom in flex container */
+    width: 100%; /* Full width */
+    position: relative; /* Ensure it's in normal flow */
+    z-index: 1; /* Stacking context */
+}
+
+.footer-container { /* Container within the simple footer */
+    max-width: 1000px; /* Max width of footer content */
+    margin: 0 auto; /* Center horizontally */
+    padding: 0 4%; /* Horizontal padding */
+}
+
+.footer-container p { /* Paragraphs in the footer */
+    margin-bottom: 30px;
+    font-size: 1rem;
+    color: #737373;
+}
+.footer-container p a { /* Links within paragraphs */
+    color: #737373;
+}
+
+/* Footer link list styling */
+.footer-links {
+    display: grid; /* Use CSS Grid for layout */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive columns */
+    gap: 15px; /* Space between grid items */
+    margin-bottom: 30px;
+    padding: 0; /* Remove default list padding */
+    list-style: none; /* Remove default list bullets */
+}
+.footer-links a { /* Individual links in the list */
+    color: #737373;
+    font-size: 0.8rem;
+    display: block; /* Makes the link take up its grid area */
+}
+
+/* ===================================================== */
+/* === END: Register Options Page Styles === */
+/* ===================================================== */
+
+
+/* === Base Responsive Design (Relevant Rules) === */
+@media (max-width: 1000px) {
+    /* Adjust slider aspect ratio and width on medium screens */
+    .image-slider-container {
+        max-width: 90%; /* Allow slightly wider on medium screens */
+        aspect-ratio: 16 / 8; /* Adjust aspect ratio */
+    }
+}
+
+@media (max-width: 768px) {
+    /* --- Register page adjustments --- */
+    body.register-page .page-header {
+        padding: 15px 5%; /* Reduce header padding */
+    }
+    body.register-page .logo-link .logo {
+        height: 60px; /* Smaller logo */
+    }
+    body.register-page .btn-signin {
+        font-size: 0.8rem; /* Smaller signin button text */
+        padding: 5px 10px; /* Smaller signin button padding */
+    }
+
+    /* --- Slider adjustments --- */
+    .image-slider-container {
+        margin-top: 90px; /* Adjust top margin */
+        margin-bottom: 20px; /* Adjust bottom margin */
+        max-width: 100%; /* Full width slider */
+        border-radius: 0; /* Remove border radius */
+        box-shadow: none; /* Remove shadow */
+        aspect-ratio: 16 / 9; /* Common mobile aspect ratio */
+    }
+    .slider-button {
+        width: 40px; /* Smaller buttons */
+        height: 40px;
+        font-size: 1.2rem; /* Smaller arrows */
+        line-height: 22px; /* Adjust line height */
+        padding: 8px 12px; /* Adjust padding */
+    }
+    .slider-button.slider-prev { left: 10px; } /* Move buttons closer to edge */
+    .slider-button.slider-next { right: 10px; }
+
+    /* --- Footer adjustments --- */
+    .footer-container {
+        max-width: 100%; /* Allow footer content full width */
+    }
+    .page-footer-simple {
+        background-color: #000; /* Darker footer background on mobile */
+        padding-bottom: 20px; /* Adjust bottom padding */
+    }
+}
+
+/* Media query for max-width 600px has no specific rules for register_options elements */
+
+@media (max-width: 480px) {
+    /* Further reduce logo size on small screens */
+    body.register-page .logo-link .logo {
+        height: 50px;
+    }
+    /* Adjust slider margin again */
+    .image-slider-container {
+        margin-top: 80px;
+    }
+}
+
+@media (orientation: landscape) and (max-height: 500px) {
+    /* Adjustments for short, wide screens (landscape mobile) */
+    body.register-page .image-slider-container {
+        margin-top: 80px; /* Adjust margins */
+        margin-bottom: 30px;
+        aspect-ratio: 16 / 6; /* Make slider shorter */
+    }
+    body.register-page .logo-link .logo {
+        height: 50px; /* Smaller logo */
+    }
+    body.register-page .page-header {
+        padding: 10px 4%; /* Reduce header padding */
+    }
+}
+

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mummy Meals Customer Dashboard</title>
+  <link rel="stylesheet" href="csss/customer_login.css">
+</head>
+<body>
+  <!-- Header -->
+  <div class="header-bar">
+    <div class="brand-container">
+      <img src="resources/images1/logo.png" alt="Mummy Meals Logo" class="brand-logo">
+    </div>
+    <div class="header-actions">
+      <div class="address-bar" id="customer-address"></div>
+      <a href="helpme.html" class="help-link">Help</a>
+      <div class="user-profile">
+        <img id="profile-pic" class="user-avatar" src="" alt="Profile" />
+        <span id="profile-name"></span>
+        <div class="profile-dropdown" id="profile-dropdown">
+          <div class="dropdown-item user-info">
+            <div class="dropdown-name" id="dropdown-name"></div>
+            <div class="dropdown-mobile" id="dropdown-mobile"></div>
+          </div>
+          <div class="dropdown-divider"></div>
+          <div class="dropdown-item logout-btn" id="logout-btn">Logout</div>
+        </div>
+      </div>
+      <div class="cart-icon" id="cart-icon">Cart</div>
+    </div>
+  </div>
+  
+  <!-- Main Content -->
+  <div class="main-content">
+    <h2 class="subtitle" id="district-title"></h2>
+    <div class="mummy-list" id="mummy-list"></div>
+  </div>
+  
+  
+  <!-- Modal for Mummy Details -->
+  <div id="mummy-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" id="close-modal">&times;</span>
+      <div class="modal-header">
+        <img id="modal-mummy-pic" class="modal-mummy-pic" src="" alt="Mummy Pic">
+        <div>
+          <h3 id="modal-mummy-name"></h3>
+          <p id="modal-mummy-district"></p>
+        </div>
+      </div>
+      <div class="modal-body">
+        <p><strong>Cooking Tomorrow:</strong> <span id="modal-mummy-menu"></span></p>
+        <p><strong>Order Closing Time:</strong> <span id="modal-mummy-closing"></span></p>
+        <p><strong>Max Orders:</strong> <span id="modal-mummy-max"></span></p>
+        <div>
+          <label for="order-qty">Order Quantity:</label>
+          <input type="number" id="order-qty" min="1" value="1">
+        </div>
+        <button id="move-to-cart" class="move-to-cart-btn">Move to Cart</button>
+      </div>
+    </div>
+  </div>
+  <!-- Cart Modal -->
+<div id="cart-modal" class="cart-modal">
+    <div class="cart-modal-content">
+      <span class="close-cart-modal">&times;</span>
+      <h2>Your Order</h2>
+      <div id="cart-details">
+        <div class="cart-detail-row">
+          <span>Mummy:</span>
+          <span id="modal-mummy-name-display"></span>
+        </div>
+        <div class="cart-detail-row">
+          <span>Food:</span>
+          <span id="modal-food-display"></span>
+        </div>
+        <div class="cart-detail-row">
+          <span>Number of Meals:</span>
+          <span id="modal-qty-display"></span>
+        </div>
+        <div class="cart-detail-row">
+          <span>Payment Method:</span>
+          <span>Cash</span>
+        </div>
+      </div>
+      <button id="place-order-btn" class="place-order-btn">Place Order</button>
+    </div>
+  </div>
+  
+  
+  <script src="jss/customer_login.js"></script>
+</body>
+</html>
